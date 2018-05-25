@@ -15,15 +15,12 @@ Route::get('/', function () {
     return redirect('home');
 });
 
-Route::get('/home', function () {
-    return view('home');
-})->name('home');
+Route::get('/home', 'PagesController@getHome');
 
+Route::get('/about', 'PagesController@getAbout');
 
-Route::get('/about', function () {
-    return view('about');
-})->name('about');
+Route::get('/contact', 'PagesController@getContact');
 
-Route::get('/contact', function () {
-    return view('contact');
-})->name('contact');
+Route::get('/messages', 'MessagesController@getMessages');
+
+Route::post('contact/submit', 'MessagesController@submit');
